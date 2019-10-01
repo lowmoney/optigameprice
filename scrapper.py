@@ -30,9 +30,9 @@ def search(key):
 
         # This should fix issue when adding to database due to string value
         prices.append(pagePrices[0].text.strip().replace('~','').replace('$','').split('\n')[0])
-        if prices[0] == 'free':
-            prices[0] == 0.00
-            
+        if isinstance(prices[0],str):
+            prices[0] = 0.00
+
         links.append(requests.get('http://tinyurl.com/api-create.php?url='+str('https://gg.deals'+shopLinks[0]['href'])).text)
 
     # Return an array of shops and prices
