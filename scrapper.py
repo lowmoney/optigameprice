@@ -27,7 +27,12 @@ def search(key):
         shopLinks = soup.find_all('a','game-hoverable full-link')
         # loop through all the shops and prices 
         shops.append(pageShops[0].img['alt'])
+
+        # This should fix issue when adding to database due to string value
+        if prices[0] == 'free':
+            prices[0] == 0.00
         prices.append(pagePrices[0].text.strip().replace('~','').replace('$','').split('\n')[0])
+        
         links.append(requests.get('http://tinyurl.com/api-create.php?url='+str('https://gg.deals'+shopLinks[0]['href'])).text)
 
     # Return an array of shops and prices
