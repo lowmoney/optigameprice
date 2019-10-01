@@ -150,7 +150,3 @@ def hello():
 def handle_exception(error):
     return "Page not found, Go to: insert link",404
 
-
-# run the server
-if __name__ == '__main__':
-    app.run(host='0.0.0.0')
