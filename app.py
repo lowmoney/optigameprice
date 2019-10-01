@@ -133,7 +133,7 @@ def gameLink(key):
 
         # Otherwise return from the DataBase
         else:
-            game = game_link_schema.jsonify(Search.query.get(fixedKey))
+            game = game_link_schema.jsonify(Search.query.get(item[0]))
             return redirect(game.json['link'], code=301)
 
     # Otherwise redirect with the link to game
@@ -149,4 +149,7 @@ def hello():
 @app.errorhandler(404)
 def handle_exception(error):
     return "Page not found, Go to: insert link",404
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
