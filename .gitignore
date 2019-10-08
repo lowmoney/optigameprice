@@ -1,2 +1,4 @@
 env
 Appdebug.py
+Procfile
+db.sqlite
